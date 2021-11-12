@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 import './App.css'
 import TitleBar from "../TitleBar/TitleBar";
-
+import Bookviewer from "./BookViewer/Bookviewer";
 
 class App extends Component{
     constructor(props){
         super(props);
 
         this.books = [
-            {title: "The Expanse", author: "James S.A Corey"},
-            {title: "Can't Hurt Me", author: "David Goggins"},
-            {title: "Ready Player One", author: "Ernest Cline"},
+            {title : 'The Expanse', author: "James S.A Corey"},
+            {title : "Can't Hurt Me", author: "David Goggins"},
+            {title : 'Ready Player One', author: "Ernest Cline"},
         ];
 
         this.state = {
@@ -55,36 +55,12 @@ class App extends Component{
            
            <div className = "container-fluid">
                 <TitleBar/> 
-                <div className = "row">
-                                
-                                <div className = "col-md-4">
-                                    
-                                    <button onClick = {this.goToPreviousBook}>Previous Book</button>
-                                    
-                                </div> {/* Button here to move to the previous book. */}
-
-                                <div className = "col-md-4"> 
-                                    
-                                    <h1>{this.books[this.state.bookNumber].title}</h1>
-                                    <h4>{this.books[this.state.bookNumber].author}</h4>
-                                                             
-                                </div> {/*Display book cover here. */}
-                                   
-
-
-                                <div className = "col-md-4">
-                                    
-                                    <button onClick = {this.goToNextBook}>Next Book</button>
-
-                                </div> {/* Button here to move to the next book. */}
-    
-               
-                </div>
-           
-                
-                
-
+                <Bookviewer books = {this.books[this.state.bookNumber]} nextBook = {this.goToNextBook} previousBook = {this.goToPreviousBook}/>
             </div>
+                
+                
+
+                
         )
     }
 }
