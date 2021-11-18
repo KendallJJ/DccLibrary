@@ -1,5 +1,5 @@
 import React from "react";
-
+import Book from "../Book/Book";
 const BookViewer = (props) => {
     return ( <div className = "row row-spacer">
                                 
@@ -11,8 +11,7 @@ const BookViewer = (props) => {
 
     <div className = "col-md-4"> 
         
-        <h1>{props.books.title}</h1>
-        <h4>{props.books.author}</h4>
+       <Book book= {props.books}/>
                                  
     </div> {/*Display book cover here. */}
        
